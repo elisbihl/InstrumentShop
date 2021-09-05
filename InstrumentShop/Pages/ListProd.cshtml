@@ -1,0 +1,11 @@
+﻿@page
+@model InstrumentShop.Pages.ListProdModel
+@{
+}
+@foreach (var item in @Model.Lista)
+{
+    <div>
+        <a asp-route-id="@item.Id" asp-route-category="@item.Kategori" asp-page="/Product">@item.ProductName</a>
+
+    </div>
+}

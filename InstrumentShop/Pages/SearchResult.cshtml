@@ -1,0 +1,18 @@
+﻿@page
+@model InstrumentShop.Pages.SearchResultModel
+@{
+}
+
+<h3>Sökresultat för @Model.Search:</h3>
+<table class="tab-content">
+    
+    <tbody>
+
+    @foreach (var item in @Model.Lista)
+    {
+        <tr>
+            <td> <a asp-route-id="@item.Id" asp-page="/Product">@item.ProductName</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

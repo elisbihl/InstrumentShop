@@ -1,0 +1,48 @@
+﻿@page
+@model InstrumentShop.Pages.Admin.Products.EditModel
+@{
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Namn">Produktnamn</label>
+        <input class="form-control" asp-for="Namn" />
+        <span asp-validation-for="Namn"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Pris">Pris</label>
+        <input class="form-control" asp-for="Pris" />
+        <span asp-validation-for="Pris"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Beskrivning">Beskrivning</label>
+        <input class="form-control" asp-for="Beskrivning" />
+        <span asp-validation-for="Beskrivning"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Category">Kategori</label>
+
+        <select class="form-control" asp-for="Category"
+                asp-items="@Model.Categories"></select>
+
+        <span asp-validation-for="Category" class="field-validation-error"></span>
+   </div>
+    <div class="form-group">
+        @if (!string.IsNullOrEmpty(Model.BildSrc))
+        {
+            <div class="form-group">
+                Existerande bild:
+                <img width="30%" height="30%" src="@Model.BildSrc" />
+            </div>
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="BildSrc">Länk till bild</label>
+        <input asp-for="BildSrc" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="@Model.LastModified">Senast ändrad: @Model.LastModified</label>
+    </div>
+    <div>
+        <button type="submit" value="update">Ändra</button>
+    </div>
+</form>

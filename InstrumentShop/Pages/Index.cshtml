@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<table>
+    <tbody>
+    <tr>
+        @foreach (var item in @Model.Lista)
+        {
+
+            <td>
+                <a class="btn btn-outline-primary" asp-page="/ListProd" asp-route-id="@item.Id">@item.KatNamn</a>
+            </td>
+
+        }
+    </tr>
+    </tbody>
+</table>
+

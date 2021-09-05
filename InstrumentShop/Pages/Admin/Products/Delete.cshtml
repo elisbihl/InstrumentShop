@@ -1,0 +1,14 @@
+﻿@page
+@model InstrumentShop.Pages.Admin.Products.DeleteModel
+@{
+}
+<h1>Delete Confirmation</h1>
+<form method="post">
+    <div class="" alert alert-danger>
+        <h5>Är du säker att du vill ta bort produkt - @Model.Product.ProductName</h5>
+
+        <button type="submit" class="btn btn-danger" asp-route-id="@Model.Product.Id">Yes</button>
+        <a class="btn btn-primary" asp-page="/admin/categories/products/list">No</a>
+
+    </div>
+</form>

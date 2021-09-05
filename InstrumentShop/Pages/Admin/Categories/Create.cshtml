@@ -1,0 +1,16 @@
+﻿@page
+@model InstrumentShop.Pages.Admin.Categories.CreateModel
+@{
+}
+<div>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Namn">Produktnamn:</label>
+            <input class="form-control" asp-for="Namn">
+            <span asp-validation-for="Namn" class="field-validation-error"></span>
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</div>

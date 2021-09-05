@@ -1,0 +1,32 @@
+﻿@page
+@model InstrumentShop.Pages.Admin.Categories.ListCategoriesModel
+@{
+}
+<form enctype="multipart/form-data">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Namn</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Lista)
+            {
+                <tr>
+                    <td>@item.CategoryName</td>
+                    <td>
+                        <a asp-route-id="@item.Id" asp-page="/admin/categories/Delete" class="btn btn-danger">Ta Bort</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfooter>
+            <tr>
+                <td colspan="2">
+                    <a asp-page="/admin/categories/create" class="btn btn-primary">Ny kategori</a>
+                </td>
+            </tr>
+        </tfooter>
+    </table>
+</form>
