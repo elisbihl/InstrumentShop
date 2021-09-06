@@ -130,9 +130,10 @@ namespace InstrumentShop.Data
                     Pris = 4390,
                     Beskrivning = "Den klassiska ride-cymbalen från Paiste",
                     Kategori = dbContext.Categories.First(r => r.CategoryName == "Slaginstrument"),
-                    LastModified = DateTime.Now
+                    LastModified = DateTime.Now,
+                    BildSource= "https://thumbs.static-thomann.de/thumb/orig/pics/bdb/133506/10398192_800.webp"
 
-                });
+            });
             }
 
             if (!dbContext.Products.Any(r => r.ProductName == "Pearl Roadshow 22 Plus Charcoal M"))

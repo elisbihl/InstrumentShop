@@ -46,7 +46,7 @@ namespace InstrumentShop.Pages.Admin.Products
             Pris = product.Pris;
             Beskrivning = product.Beskrivning;
             LastModified = product.LastModified;
-            BildSrc = "https://thumbs.static-thomann.de/thumb/orig/pics/bdb/133506/10398192_800.webp";
+            BildSrc = product.BildSource;
         }
 
 
@@ -60,7 +60,7 @@ namespace InstrumentShop.Pages.Admin.Products
                 product.Beskrivning = Beskrivning;
                 product.Kategori = _dbContext.Categories.First(r => r.Id == Category);
                 product.LastModified = DateTime.Now;
-               
+                product.BildSource = BildSrc;
                 _dbContext.SaveChanges();
                 return RedirectToPage("/Admin/Products/List");
             }
