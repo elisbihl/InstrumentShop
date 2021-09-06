@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using InstrumentShop.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace InstrumentShop.Pages.Admin.Products
 {
+    [Authorize(Roles = "Admin, Product Manager")]
+
     public class DeleteModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
@@ -24,10 +27,6 @@ namespace InstrumentShop.Pages.Admin.Products
         public IActionResult OnGet(int id)
         {
             Product = _dbContext.Products.First(r => r.Id == id);
-
-            if (Product == null)
-            {
-            }
 
             return Page();
         }

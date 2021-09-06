@@ -6,9 +6,7 @@
 <form method="post">
     <div class="" alert alert-danger>
         <h5>Är du säker att du vill ta bort kategori - @Model.Category.CategoryName</h5>
-
-        <button type="submit" class="btn btn-danger" asp-route-id="@Model.Category.Id">Yes</button>
-        <a class="btn btn-primary" asp-page="/admin/categories/products/list">No</a>
-
+        <button type="submit" class="btn btn-danger">Yes</button>
+        <a class="btn btn-primary" asp-page="/admin/categories/listcategories">No</a>
     </div>
 </form>

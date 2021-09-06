@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using InstrumentShop.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace InstrumentShop.Pages.Admin.Products
 {
+    [Authorize(Roles = "Admin, Product Manager")]
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
@@ -40,8 +42,8 @@ namespace InstrumentShop.Pages.Admin.Products
                 Text = e.CategoryName,
                 Value = e.Id.ToString(),
             }).ToList();
-
             var product = _dbContext.Products.First(r => r.Id == id);
+
             Namn = product.ProductName;
             Pris = product.Pris;
             Beskrivning = product.Beskrivning;

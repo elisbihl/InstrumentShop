@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using InstrumentShop.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,6 +12,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace InstrumentShop.Pages.Admin.Products
 {
+    [Authorize(Roles = "Admin, Product Manager")]
+
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
