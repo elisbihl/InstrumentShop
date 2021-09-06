@@ -32,6 +32,8 @@ namespace InstrumentShop.Pages.Admin.Products
         public int Pris { get; set; }
         [BindProperty]
         public int Selected { get; set; }
+        public string BildUrl { get; set; }
+
         public List<SelectListItem> Lista { get; set; }
 
         public IActionResult OnPost()
@@ -42,6 +44,7 @@ namespace InstrumentShop.Pages.Admin.Products
                 item.ProductName = Namn;
                 item.Beskrivning = Beskrivning;
                 item.Pris = Pris;
+                item.BildSource = BildUrl;
                 item.Kategori = _dbContext.Categories.First(r => r.Id == Selected);
                 _dbContext.Add(item);
                 _dbContext.SaveChanges();

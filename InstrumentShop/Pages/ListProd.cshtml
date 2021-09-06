@@ -5,7 +5,7 @@
 @foreach (var item in @Model.Lista)
 {
     <div>
-        <a asp-route-id="@item.Id" asp-route-category="@item.Kategori" asp-page="/Product">@item.ProductName</a>
+        <a asp-route-id="@item.Id" asp-page="/Product">@item.Namn</a>
 
     </div>
 }

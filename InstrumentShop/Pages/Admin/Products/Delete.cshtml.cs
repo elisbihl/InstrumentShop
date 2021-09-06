@@ -26,7 +26,7 @@ namespace InstrumentShop.Pages.Admin.Products
 
         public IActionResult OnGet(int id)
         {
-            Product = _dbContext.Products.First(r => r.Id == id);
+            var Product = _dbContext.Products.First(r => r.Id == id);
 
             return Page();
         }

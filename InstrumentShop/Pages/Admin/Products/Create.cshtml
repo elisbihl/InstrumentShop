@@ -30,9 +30,13 @@
                         <span asp-validation-for="Pris" class="field-validation-error"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Beskrivning">Beskrvinging av produkt: </label>
+                        <label asp-for="Beskrivning">Beskrivning av produkt: </label>
                         <input class="form-control" asp-for="Beskrivning">
                         <span asp-validation-for="Beskrivning" class="field-validation-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BildUrl">Länk till bild med URL</label>
+                        <input asp-for="BildUrl" class="form-control" />
                     </div>
                     <button type="submit" class="btn btn-primary">Spara</button>
                 </form>

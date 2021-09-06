@@ -49,6 +49,7 @@ namespace InstrumentShop.Pages.Admin.Products
             Beskrivning = product.Beskrivning;
             LastModified = product.LastModified;
             BildSrc = product.BildSource;
+
         }
 
 

@@ -26,14 +26,14 @@ namespace InstrumentShop.Pages.Admin.Categories
             public string Name { get; set; }
         }
 
-        public List<Category> Lista { get; set; }
+        public List<CategoryItem> Lista { get; set; }
 
         public void OnGet()
         {
-            Lista = _DbContext.Categories.Select(r => new Category()
+            Lista = _DbContext.Categories.Select(r => new CategoryItem()
             {
                 Id = r.Id,
-                CategoryName = r.CategoryName,
+                Name = r.CategoryName,
             }).ToList();
         }
 

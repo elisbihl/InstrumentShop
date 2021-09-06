@@ -21,18 +21,31 @@ namespace InstrumentShop.Pages
             _dbContext = dbContext;
         }
 
-        public string BildSource { get; set; }
+        public List<ProductItem> Lista { get; set; }
 
-        public List<Products> Lista { get; set; }
-
-
+        public class ProductItem
+        {
+            public string Namn { get; set; }
+            public string Bes { get; set; }
+            public int Id { get; set; }
+            public string BildSrc { get; set; }
+            public int Category { get; set; }
+        }
 
         public void OnGet(int id)
         {
-            var temp = _dbContext.Products.Where(r => r.Kategori.Id == id);
-            var imte = from r in _dbContext.Products
-                       where r.Kategori.Id == id
-                orderby r.ProductName ascending
+        
+            Lista = _dbContext.Products.Select(r => new ProductItem
+            {
+                Namn = r.ProductName,
+                Bes = r.Beskrivning,
+                Id = r.Id,
+                BildSrc = r.BildSource,
+                Category = r.Kategori.Id
+            }).ToList();
+            var imte = from r in Lista
+                where r.Category == id
+                orderby r.Namn ascending
                 select r;
             Lista = imte.ToList();
         }

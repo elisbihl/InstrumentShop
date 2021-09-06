@@ -21,4 +21,12 @@
     <Folder Include="wwwroot\Uploads\Image\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\changelog.txt" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\inner-page.html" />
+    <None Include="wwwroot\portfolio-details.html" />
+    <None Include="wwwroot\Readme.txt" />
+  </ItemGroup>
+
 </Project>

@@ -7,11 +7,17 @@
 <table class="tab-content">
     
     <tbody>
-
+    <thead>
+    <tr>
+        <th>
+            <a asp-route-sort="@Model.Sort" asp-route-query="@Model.Search" asp-page="/SearchResult">Namn</a>
+        </th>
+    </tr>
+    </thead>
     @foreach (var item in @Model.Lista)
     {
         <tr>
-            <td> <a asp-route-id="@item.Id" asp-page="/Product">@item.ProductName</a></td>
+            <td> <a asp-route-id="@item.Id" asp-page="/Product">@item.Namn</a></td>
         </tr>
     }
     </tbody>

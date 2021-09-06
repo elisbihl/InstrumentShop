@@ -19,7 +19,6 @@ namespace InstrumentShop.Pages
         }
         public int Id { get; set; }
         public string Namn { get; set; }
-        public string Band { get; set; }
         public string Beskrivning { get; set; }
         public int Pris { get; set; }
         public IFormFile Bild { get; set; }
@@ -32,7 +31,6 @@ namespace InstrumentShop.Pages
             Namn = product.ProductName;
             Beskrivning = product.Beskrivning;
             Pris = product.Pris;
-            var temp = _dbContext.Products.Where(r => r.Kategori.Id == Id);
         }
     }
 }

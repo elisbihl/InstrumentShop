@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using InstrumentShop.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace InstrumentShop.Pages
 {
@@ -13,28 +14,50 @@ namespace InstrumentShop.Pages
         private readonly ApplicationDbContext _dbContext;
 
         [BindProperty(SupportsGet = true)]
-        public List<Products> Lista { get; set; }
+        public List<ProductItem> Lista { get; set; }
+
         public string Search { get; set; }
+        public string Sort { get; set; }
+
+        public class ProductItem
+        {
+            public string Namn { get; set; }
+            public string Bes { get; set; }
+            public int Id { get; set; }
+            public string BildSrc { get; set; }
+        }
 
         public SearchResultModel(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-
-        public void OnGet(string query)
+        public void OnGet(string query, string sort)
         {
             Search = query;
-            var temp = from r in _dbContext.Products
-                select r;
-            if (!string.IsNullOrEmpty(Search))
+            Sort = sort;
+            var item = _dbContext.Products.Where(r => r.ProductName.Contains(query)
+                                                      || r.Beskrivning.Contains(query)).Select(r => new ProductItem
             {
-                temp = temp.Where(r =>
-                    r.ProductName.Contains(Search) || r.Beskrivning.Contains(Search));
+                Id = r.Id,
+                Bes = r.Beskrivning,
+                Namn = r.ProductName,
+                BildSrc = r.BildSource
+            });
 
+            if (sort == "desc")
+            {
+                Sort = "asc";
+                item = item.OrderByDescending(s => s.Namn);
+            }
+            else
+            {
+                Sort = "desc";
+                item = item.OrderBy(s => s.Namn);
             }
 
-            Lista = temp.ToList();
+            Lista = item.ToList();
         }
+
     }
 }
