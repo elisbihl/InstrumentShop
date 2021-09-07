@@ -24,11 +24,11 @@ namespace InstrumentShop.Pages.Admin.Products
             _dbContext = dbContext;
          
         }
-        [BindProperty, Required]
+        [BindProperty, Required, MaxLength(50)]
         public string Namn { get; set; }
         [BindProperty]
         public string Beskrivning { get; set; }
-        [BindProperty, Required]
+        [BindProperty, Required, Range(1, 999999)]
         public int Pris { get; set; }
         [BindProperty]
         public int Selected { get; set; }

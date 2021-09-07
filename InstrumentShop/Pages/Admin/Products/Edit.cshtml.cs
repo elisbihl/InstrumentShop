@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using InstrumentShop.Data;
@@ -20,9 +21,9 @@ namespace InstrumentShop.Pages.Admin.Products
         {
             _dbContext = dbContext;
         }
-        [BindProperty]
+        [BindProperty, Required, MaxLength(50)]
         public string Namn { get; set; }
-        [BindProperty]
+        [BindProperty, Range(1, 999999), Required]
         public int Pris { get; set; }
         [BindProperty]
         public string Beskrivning { get; set; }
