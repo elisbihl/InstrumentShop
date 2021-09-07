@@ -2,10 +2,26 @@
 @model InstrumentShop.Pages.ListProdModel
 @{
 }
-@foreach (var item in @Model.Lista)
-{
-    <div>
-        <a asp-route-id="@item.Id" asp-page="/Product">@item.Namn</a>
-
-    </div>
-}
+<form enctype="multipart/form-data">
+    <table class="form-group">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Namn</th>
+                <th>Beskrivning</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Lista)
+            {
+                <tr>
+                    <td asp-page="/product" asp-route-id="@item.Id"><img width="100" height="70" src="@item.BildSrc" /></td>
+                    <td><a asp-page="/product" asp-route-id="@item.Id">@item.Namn</a></td>
+                    <td><a asp-page="/product" asp-route-id="@item.Id">@item.Bes</a></td>
+                    
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

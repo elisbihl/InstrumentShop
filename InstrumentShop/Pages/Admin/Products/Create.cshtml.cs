@@ -32,6 +32,7 @@ namespace InstrumentShop.Pages.Admin.Products
         public int Pris { get; set; }
         [BindProperty]
         public int Selected { get; set; }
+        [BindProperty]
         public string BildUrl { get; set; }
 
         public List<SelectListItem> Lista { get; set; }

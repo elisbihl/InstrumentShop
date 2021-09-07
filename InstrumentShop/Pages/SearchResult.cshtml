@@ -4,21 +4,26 @@
 }
 
 <h3>Sökresultat för @Model.Search:</h3>
-<table class="tab-content">
-    
-    <tbody>
-    <thead>
-    <tr>
-        <th>
-            <a asp-route-sort="@Model.Sort" asp-route-query="@Model.Search" asp-page="/SearchResult">Namn</a>
-        </th>
-    </tr>
-    </thead>
-    @foreach (var item in @Model.Lista)
-    {
+
+<form enctype="multipart/form-data">
+    <table class="table">
+        <thead>
         <tr>
-            <td> <a asp-route-id="@item.Id" asp-page="/Product">@item.Namn</a></td>
+            <th></th>
+            <th>
+                <a asp-route-sort="@Model.Sort" asp-route-query="@Model.Search" asp-page="/SearchResult">Namn</a>
+            </th>
         </tr>
-    }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Lista)
+            {
+            <tr>
+                <td><img width="100" height="80" src="@item.BildSrc" /></td>
+                <td><a asp-page="/product" asp-route-id="@item.Id">@item.Namn</a></td>
+                <td><a asp-page="/product" asp-route-id="@item.Id">@item.Bes</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</form>

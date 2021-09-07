@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using InstrumentShop.Data;
@@ -20,7 +21,10 @@ namespace InstrumentShop.Pages.Admin.Categories
             _dbContext = dbContext;
         }
 
-        [BindProperty] public string Namn { get; set; }
+        [BindProperty, Required, MaxLength(30)] public string Namn { get; set; }
+
+        [BindProperty, Url]
+        public string BildUrl { get; set; }
 
         public IActionResult OnPost()
         {
@@ -28,6 +32,7 @@ namespace InstrumentShop.Pages.Admin.Categories
             {
                 var n = new Category();
                 n.CategoryName = Namn;
+                n.CatImg = BildUrl;
                 _dbContext.Add(n);
                 _dbContext.SaveChanges();
                 return RedirectToPage("/Admin/Categories/ListCategories");

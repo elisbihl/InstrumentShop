@@ -10,5 +10,6 @@ namespace InstrumentShop.Data
         public int Id { get; set; }
         public string CategoryName { get; set; }
         public List<Products> Produkter { get; set; }
+        public string CatImg { get; set; }
     }
 }

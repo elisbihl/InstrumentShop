@@ -6,16 +6,18 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Namn</th>
             <th></th>
+            <th>Namn</th>
+            <th>Beskrivning</th>
         </tr>
         </thead>
         <tbody>
         @foreach (var item in Model.ProduktLista)
         {
             <tr>
-                
+                <td><img width="100" height="70" src="@item.Bild" /></td>
                 <td>@item.Name</td>
+                <td>@item.Bes</td>
                 <td>
                     <a asp-route-id="@item.Id" asp-page="/admin/Products/Edit" class="btn btn-primary">Ändra</a>
                     <a asp-route-id="@item.Id" asp-page="/admin/Products/Delete" class="btn btn-danger">Ta Bort</a>

@@ -16,6 +16,7 @@
                 <tr>
                     <td>@item.Name</td>
                     <td>
+                        <a asp-route-id="@item.Id" asp-page="/admin/categories/Edit" class="btn btn-primary">Ändra</a>
                         <a asp-route-id="@item.Id" asp-page="/admin/categories/Delete" class="btn btn-danger">Ta Bort</a>
                     </td>
                 </tr>

@@ -21,7 +21,6 @@ namespace InstrumentShop.Pages
         public string Namn { get; set; }
         public string Beskrivning { get; set; }
         public int Pris { get; set; }
-        public IFormFile Bild { get; set; }
         public string BildSource { get; set; }
 
         public void OnGet(int id)
@@ -31,6 +30,7 @@ namespace InstrumentShop.Pages
             Namn = product.ProductName;
             Beskrivning = product.Beskrivning;
             Pris = product.Pris;
+            BildSource = product.BildSource;
         }
     }
 }

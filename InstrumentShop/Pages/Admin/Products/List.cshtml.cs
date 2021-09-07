@@ -29,6 +29,7 @@ namespace InstrumentShop.Pages.Admin.Products
             public int Pris { get; set; }
             public string Kate { get; set; }
             public string Bes { get; set; }
+            public string Bild { get; set; }
         }
 
         public void OnGet()
@@ -39,7 +40,8 @@ namespace InstrumentShop.Pages.Admin.Products
                 Pris = r.Pris,
                 Kate = r.Kategori.CategoryName,
                 Id = r.Id,
-                Bes = r.Beskrivning
+                Bes = r.Beskrivning,
+                Bild = r.BildSource
             }).ToList();
         }
     }

@@ -2,3 +2,26 @@
 @model InstrumentShop.Pages.Admin.Categories.EditModel
 @{
 }
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Namn">Produktnamn</label>
+        <input class="form-control" asp-for="Namn" />
+        <span asp-validation-for="Namn"></span>
+    </div>
+    <div class="form-group">
+        @if (!string.IsNullOrEmpty(Model.BildSrc))
+        {
+            <div class="form-group">
+                Existerande bild:
+                <img width="300" height="200" src="@Model.BildSrc" />
+            </div>
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="BildSrc">Länk till bild med URL</label>
+        <input asp-for="BildSrc" class="form-control" />
+    </div>
+    <div>
+        <button type="submit" value="update">Ändra</button>
+    </div>
+</form>

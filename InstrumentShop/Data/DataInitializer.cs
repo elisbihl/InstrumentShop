@@ -12,9 +12,9 @@ namespace InstrumentShop.Data
         public static void SeedData(ApplicationDbContext dbContext, UserManager<IdentityUser> userManager)
         {
             dbContext.Database.Migrate();
-            SeedCategory(dbContext);
             SeedRoles(dbContext);
             SeedUser(userManager);
+            SeedCategory(dbContext);
             SeedProducts(dbContext);
         }
 
@@ -74,18 +74,31 @@ namespace InstrumentShop.Data
             {
                 var category1 = new Category()
                 {
-                    CategoryName = "Slaginstrument"
+                    CategoryName = "Slaginstrument",
+                    CatImg = "https://rolandcorp.com.au/blog/wp-content/uploads/2020/09/record-e-drums-960x600-1.jpg"
                 };
                 dbContext.Categories.Add(category1);
             }
 
 
 
-            if (!dbContext.Categories.Any(r => r.CategoryName == "Gitarrer"))
+            if (!dbContext.Categories.Any(r => r.CategoryName == "Akustiska Gitarrer"))
             {
                 var category2 = new Category()
                 {
-                    CategoryName = "Gitarrer"
+                    CategoryName = "Akustiska Gitarrer",
+                    CatImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB3mMOCMXs02vSqeQX-MNSNus4TbHEYIZiaA&usqp=CAU"
+
+                };
+                dbContext.Categories.Add(category2);
+            }
+
+            if (!dbContext.Categories.Any(r => r.CategoryName == "Synthar"))
+            {
+                var category2 = new Category()
+                {
+                    CategoryName = "Synthar",
+                    CatImg = "https://www.musictech.net/wp-content/uploads/2020/10/polysynth-buyers-guide@1400x1050.jpg"
 
                 };
                 dbContext.Categories.Add(category2);
@@ -105,8 +118,9 @@ namespace InstrumentShop.Data
                     ProductName = "Yamaha C40",
                     Pris = 1290,
                     Beskrivning = "Klassisk nylonsträngad gitarr",
-                    Kategori = dbContext.Categories.First(r => r.CategoryName == "Gitarrer"),
-                    LastModified = DateTime.Now
+                    Kategori = dbContext.Categories.First(r => r.CategoryName == "Akustiska Gitarrer"),
+                    LastModified = DateTime.Now,
+                    BildSource = "https://thumbs.static-thomann.de/thumb/orig/pics/prod/135317.webp"
                 });
             }
             if (!dbContext.Products.Any(r => r.ProductName == "Takamine TC132SC"))
@@ -114,10 +128,24 @@ namespace InstrumentShop.Data
                 dbContext.Products.Add(new Products()
                 {
                     ProductName = "Takamine TC132SC",
-                    Pris = 1290,
+                    Pris = 12900,
                     Beskrivning = "Klassisk nylonsträngad gitarr",
-                    Kategori = dbContext.Categories.First(r => r.CategoryName == "Gitarrer"),
-                    LastModified = DateTime.Now
+                    Kategori = dbContext.Categories.First(r => r.CategoryName == "Akustiska Gitarrer"),
+                    LastModified = DateTime.Now,
+                    BildSource = "https://thumbs.static-thomann.de/thumb/orig/pics/prod/169991.webp"
+
+                });
+            }
+            if (!dbContext.Products.Any(r => r.ProductName == "Hanika 54PF"))
+            {
+                dbContext.Products.Add(new Products()
+                {
+                    ProductName = "Hanika 54PF",
+                    Pris = 11900,
+                    Beskrivning = "Klassisk nylonsträngad gitarr",
+                    Kategori = dbContext.Categories.First(r => r.CategoryName == "Akustiska Gitarrer"),
+                    LastModified = DateTime.Now,
+                    BildSource = "https://thumbs.static-thomann.de/thumb/orig/pics/prod/379188.webp"
 
                 });
             }
@@ -141,11 +169,50 @@ namespace InstrumentShop.Data
                 dbContext.Products.Add(new Products()
                 {
                     ProductName = "Pearl Roadshow 22 Plus Charcoal M",
-                    Pris = 4390,
+                    Pris = 6300,
                     Beskrivning = "Komplett pearl trumset",
                     Kategori = dbContext.Categories.First(r => r.CategoryName == "Slaginstrument"),
-                    LastModified = DateTime.Now
+                    LastModified = DateTime.Now,
+                    BildSource = "https://thumbs.static-thomann.de/thumb/orig/pics/bdb/521883/16439406_800.webp"
+                });
+            }
 
+            if (!dbContext.Products.Any(r => r.ProductName == "The Prophet 5"))
+            {
+                dbContext.Products.Add(new Products()
+                {
+                    ProductName = "The Prophet 5",
+                    Pris = 6300,
+                    Beskrivning = "Klassisk synth",
+                    Kategori = dbContext.Categories.First(r => r.CategoryName == "Synthar"),
+                    LastModified = DateTime.Now,
+                    BildSource = "https://support.musicgateway.com/wp-content/uploads/2021/04/vintage-synth-3.png"
+                });
+            }
+
+            if (!dbContext.Products.Any(r => r.ProductName == "The Jupiter 8"))
+            {
+                dbContext.Products.Add(new Products()
+                {
+                    ProductName = "The Jupiter 8",
+                    Pris = 6300,
+                    Beskrivning = "Klassisk synth från Roland",
+                    Kategori = dbContext.Categories.First(r => r.CategoryName == "Synthar"),
+                    LastModified = DateTime.Now,
+                    BildSource = "https://support.musicgateway.com/wp-content/uploads/2021/04/Copy-of-800-x-500-Blog-Post-72.png"
+                });
+            }
+
+            if (!dbContext.Products.Any(r => r.ProductName == "The DX7"))
+            {
+                dbContext.Products.Add(new Products()
+                {
+                    ProductName = "The DX7",
+                    Pris = 6300,
+                    Beskrivning = "Klassisk synth från Yamaha",
+                    Kategori = dbContext.Categories.First(r => r.CategoryName == "Synthar"),
+                    LastModified = DateTime.Now,
+                    BildSource = "https://support.musicgateway.com/wp-content/uploads/2021/04/Copy-of-800-x-500-Blog-Post-2-4.png"
                 });
             }
 

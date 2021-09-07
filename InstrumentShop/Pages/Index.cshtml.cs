@@ -30,6 +30,7 @@ namespace InstrumentShop.Pages
         {
             public int Id { get; set; }
             public string KatNamn { get; set; }
+            public string Bild { get; set; }
         }
 
         public void OnGet()
@@ -38,6 +39,7 @@ namespace InstrumentShop.Pages
             {
                 KatNamn = r.CategoryName,
                 Id = r.Id,
+                Bild = r.CatImg
             }).ToList();
         }
     }

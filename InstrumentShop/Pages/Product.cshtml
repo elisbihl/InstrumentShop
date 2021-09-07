@@ -3,24 +3,34 @@
 @{
 }
 
-<table>
-    <thead>
+<form enctype="multipart/form-data">
+    <table class="form-group">
+        <thead>
         <tr>
-            <td>
+            <th>
+
+            </th>
+            <th>
                 @Model.Namn
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><img width="100" height="70" src="@Model.BildSource" /></td>
+            <td>
+                Pris: @Model.Pris kr
             </td>
         </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-            @Model.Pris
-        </td>
-    </tr>
-    <tr>
-        <td>
-            @Model.Beskrivning
-        </td>
-    </tr>
-    </tbody>
-</table>
+        <tr>
+            <td></td>
+            <td>
+                @Model.Beskrivning
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

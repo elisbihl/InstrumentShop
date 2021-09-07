@@ -4,18 +4,21 @@
     ViewData["Title"] = "Home page";
 }
 
+
 <table>
     <tbody>
-    <tr>
+
         @foreach (var item in @Model.Lista)
         {
+            <tr>
+                <td>
+                    <img width="300" height="230" src="@item.Bild" />
 
-            <td>
-                <a class="btn btn-outline-primary" asp-page="/ListProd" asp-route-id="@item.Id">@item.KatNamn</a>
-            </td>
-
+                    <a class="btn btn-outline-primary" asp-page="/ListProd" asp-route-id="@item.Id">@item.KatNamn</a>
+                </td>
+            </tr>
         }
-    </tr>
+
     </tbody>
 </table>
 
